@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <hea>
+        <meta charset="utf-8">
+        <title>javascript学习</title>
+        <!-- <script src="test.js"></script> -->
+    </hea>
+    <body>
+        <main>
+            <input type="text" name="pass"/>
+            <input type="text" name="repass"/>
+            <span name="msg1"></span>
+            
+
+        </main>
+        <!-- <script src="6.2.js"></script> -->
+        <script>
+            function query(name){
+                return document.querySelector(`[name='${name}']`);
+            }
+            // console.log(query("pass"));
+            let inputs=document.querySelectorAll("[name='pass'],[name='repass']");
+            console.log(inputs);
+            
+            [...inputs].map(item=>{
+                
+                item.addEventListener("keyup",function(){
+                    let msg="";
+                    if(query("pass").value!=query("repass").value){
+                        msg="两次密码不一致";
+                        // console.log(msg);
+
+                    }else{
+                        msg="";
+                    }
+                    query("msg1").innerHTML=msg;
+                })
+                
+                
+
+            })
+            
+           
+            // // "use strict";
+            // // let a=100;
+            // // for (let a=0;a<5;a++){
+            // //     console.log(a);
+            // // }
+            // // console.log($.getA());
+            // const Host={
+            //     a:123,
+            //     b:456
+
+            // };
+            // Object.freeze(Host);
+            // Host.a=456;
+            // console.log(Host.a);
+            // console.log(typeof f);
+
+
+
+        </script>
+    </body>
+</html>
