@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!-- https://www.houdunren.com/Edu/video/13044 -->
+<html>
+    <head>
+        <meta charset="utf-8">
+
+    </head>
+    <body>
+        <main>
+            <form id="form" action="www.houdunren.com">
+                用户名：<input type="text" name="user"/>
+                <hr />
+                <input type="checkbox" name="copyright"/>  接收协议
+                <hr />
+                <button>提交</button>
+            </form>
+        </main>
+        <script>
+            "use strict";
+            function query(el){
+                return document.querySelector(el);
+            }
+
+            console.log(query("#form"));
+            query("#form").addEventListener("submit",function(event){
+                let user=query("[name='user']").value.trim();
+                let copyright=query("[name='copyright']").checked;
+                // console.log(user,copyright);
+                if(!user || copyright===false){
+                    alert("请接收协议并添加用户名")
+                    event.preventDefault();
+
+                }
+                
+            })
+
+        </script>
+    </body>
+</html>
