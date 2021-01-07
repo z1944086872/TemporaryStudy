@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!-- https://www.houdunren.com/Edu/video/13045 -->
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <main>
+            <input type="text" name="pass"/>
+            <span id="msg"></span>
+        </main>
+        <script>
+            document.querySelector("[name='pass']").addEventListener("keyup",function(){
+                let len=this.value.length;
+                let span1=document.querySelector("#msg");
+                let msg="";
+                if(len >=7){
+                    msg="密码安全";
+                    
+                }else{
+                    msg="密码不安全";
+                }
+                span1.innerHTML=msg;
+            })
+        </script>
+    </body>
+</html>
