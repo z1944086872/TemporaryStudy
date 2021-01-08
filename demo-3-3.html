@@ -46,6 +46,12 @@
             // },string1);
             // console.log(str2);
             // document.body.innerHTML+=str2;
+
+            // 电话号码模糊处理
+            function phone(num,len=3){
+                return String(num).slice(0,len*-1)+"*".repeat(len);
+            }
+            console.log(phone(1786245656));
         </script>
     </body>
 </html>
