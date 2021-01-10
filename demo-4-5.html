@@ -5,6 +5,7 @@
     </head>
     <body>
         <main>
+            <div>漂亮样式</div>
 
         </main>
         <script>
@@ -123,6 +124,101 @@
         //     console.log(index);
         //     return item.js>60;
         // }))
+
+         //过滤filter
+        //     let stu=[
+        //         {name:"张三",js:90},
+        //         {name:"李四",js:50},
+        //         {name:"王五",js:60},
+        // ];
+        // let newarr=stu.filter(function(item,index,arr0){
+        //     // console.log(index);
+        //     return item.js>60;
+        // });
+        // console.table(newarr);
+
+        // //filter的实现原理
+        // let stu=[
+        //         {name:"张三",js:90},
+        //         {name:"李四",js:50},
+        //         {name:"王五",js:60},
+        // ];
+
+        // function filter1(arr,callback){
+        //     let newArr=[];
+        //     for(const value of arr){
+        //         if(callback(value)===true){
+        //             newArr.push(value);
+        //         }
+        //     }
+        //     return newArr;
+        // }
+        // console.table(filter1(stu,function(value){
+        //     return value.js>60;
+        // }));
+        // var i=-1;
+        // for(var i=0;i<4;i++){
+            
+        // }
+        // console.log(i);
+
+        // var a=1;
+        // function test(){
+        //     var a=2;
+        //     console.log(a);
+
+
+        // }
+        // test();
+        // console.log(a);
+
+    //     a="123";//此处不会报错，因为编译器会先执行var a语句，再执行此句
+    // var a;
+    // console.log(a);//123
+
+    // b="123";//此处不会报错，因为初始化前无法访问“b”
+    // let b;
+    // console.log(b);//123
+
+    // c="123";//此处不会报错，因为编译器会先执行var a语句，再执行此句
+    // const c;
+    // console.log(c);//123
+
+    // const a = "1";//向下兼容的块作用域
+    //     function hd() {//不会先执行var a
+    //     if (false) {
+    //         const a = "0";
+    //     }
+    //     console.log(a);//输出1
+    //     }
+    //     hd();
+
+    // const a=1;
+    //     function test(){
+    //         const a=2;
+    //         console.log(a);//函数内部打印2；在方法内部全局作用
+
+
+    //     }
+    //     test();
+    // //     console.log(a);//依然打印1 函数内部不影响外部
+    // const a=1;
+    // a=2;//报错，不可重复赋值
+
+    // const a=[1,2,3];
+    // a[1]=1;
+    // console.log(a);//输出[1,2,3]
+    // let div1=document.querySelector("div");
+    // console.log(...div1.textContent);
+    // [...div1.textContent].reduce(function(pre,value,index){
+    //     if(pre==index) div.innerHtml="";
+    //     let span=document.createElement("span");
+    //     span.innerHTML=value;
+    //     span.addEventListener("mouseover",function(){
+    //         this.classList.add("color");
+    //     })
+    // },0);
+    
 
 
 

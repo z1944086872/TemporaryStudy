@@ -1,0 +1,166 @@
+# 【JS学习】var let const声明变量的异同点
+
+**前言：**本博客系列为学习后盾人js教程过程中的记录与产出，如果对你有帮助，欢迎关注，点赞，分享。不足之处也欢迎指正，作者会积极思考与改正。
+
+
+
+
+
+#### 总述
+
+js中有三种声明变量的方法：var，let，const。他们各自有各自的有特点。
+
+| 声明格式       | 声明                         | 变量提升 | 作用域                         | 是否存在于windows对象中 |
+| -------------- | ---------------------------- | -------- | ------------------------------ | ----------------------- |
+| var a="abc";   | 变量                         | 是       | 全局或者函数内部               | 是                      |
+| let b="abc";   | 变量                         | 否       | 块区域以及向下兼容或者函数内部 | 否                      |
+| const c="anc"; | 常量（但引用类型依然可可变） | 否       | 块区域以及向下兼容或者函数内部 | 否                      |
+
+
+
+
+
+#### 案列
+
+实践出真知
+
+1. 变量提升
+   所谓变量提升是指：在执行js代码时，编译器会预先将声明变量的语句执行（与let，const的区别）
+
+   ```
+   //案列一：
+   
+       a="123";//此处不会报错，因为编译器会先执行var a语句，再执行此句
+       var a;
+       console.log(a);//123
+   
+        b="123";//此处会报错，因为初始化前无法访问“b”
+       let b;
+       console.log(b);//123
+   
+       c="123";
+       const c;//此处会报错，因为常量声明中缺少初始值设定项
+       console.log(c);//123
+   
+   //案例二：if（false）里面的var语句也会执行
+    		var a = "1";
+           function hd() {//此处会先执行if内部的var a
+           if (false) {
+               var a = "0";
+           }
+           console.log(a);//输出undefine
+           }
+           hd();
+           
+           
+           let a = "1";//向下兼容的块作用域
+           function hd() {//不会先执行if内部的let a
+           if (false) {
+               let a = "0";
+           }
+           console.log(a);//输出1
+           }
+           hd();
+           
+           const a = "1";
+           function hd() {//不会先执行if内部的const a
+           if (false) {
+               const a = "0";
+           }
+           console.log(a);//输出1
+           }
+           hd();
+   ```
+
+2. 作用域：var存在于最近函数或者全局作用域中（没有块作用域）
+
+   ```
+   //案列一：正常语句中（与let，const的区别）
+           var i=-1;
+           for(var i=0;i<4;i++){
+               
+           }
+           console.log(i);//此处会打印4   因为var定义的变量具有全局作用域
+           
+           let i=-1;
+           for(let i=0;i<4;i++){//此处的let只会作用在{}块域内
+               
+           }
+           console.log(i);//此处会打印-1   因为let定义的变量具有块作用域
+           
+             const a=-1;
+           for(let i=0;i<4;i++){
+           const a=1;//此处的const只会作用在{}块域内
+               
+           }
+           console.log(a);//此处会打印-1   
+           
+           
+   //案列二：函数内部（let，const都是这样）
+   		var a=1;
+           function test(){
+               var a=2;
+               console.log(a);//函数内部打印2；在方法内部全局作用
+   
+   
+           }
+           test();
+           console.log(a);//依然打印1 函数内部不影响外部
+           
+           
+          let a=1;
+           function test(){
+               let a=2;
+               console.log(a);//函数内部打印2；在方法内部全局作用
+   
+   
+           }
+           test();
+           console.log(a);//依然打印1 函数内部不影响外部
+           
+           const a=1;
+           function test(){
+               const a=2;
+               console.log(a);//函数内部打印2；在方法内部全局作用
+   
+   
+           }
+           test();
+           console.log(a);//依然打印1 函数内部不影响外部
+           
+           
+   ```
+
+3. var的全局变量会存储在windows对象中（与let，const的区别）
+
+   ```
+   		var a=1;
+           console.log(window.a);//输出1
+           
+           let a=1;
+           console.log(window.a);//输出undefined
+           
+           const a=1;
+           console.log(window.a);//输出undefined
+   ```
+
+4. const定义常量  但注意当为引用类型时依然可以改变
+
+   ```
+   	const a=1;
+       a=2;//报错，不可重复赋值
+   
+       const a=[1,2,3];
+       a[1]=1;
+       console.log(a);//输出[1,2,3]，可用freeze方法冻结
+   ```
+
+   
+
+**尾记**：
+
+有任何问题，欢迎私聊哟~~~
+
+也可关注公众号“诗与凉风”联系作者哦~~
+
+<img src="https://gitee.com/light19440868762/Images/raw/master/typoraimages /微信图片_20200706212958.jpg" alt="微信图片_20200706212958" style="zoom:33%;" />
