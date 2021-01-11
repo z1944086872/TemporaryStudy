@@ -11,29 +11,41 @@
         <script>
 
             //set处理网站关键词
-            let obj={
-                data:new Set(),
-                getWord(word){
-                   this.data.add(word);
+            // let obj={
+            //     data:new Set(),
+            //     getWord(word){
+            //        this.data.add(word);
 
 
 
-                },
-                show(){
-                    let ul=document.querySelector("ul");
-                    ul.innerHTML="";
-                    this.data.forEach(function(value){
-                        ul.innerHTML+=`<li>${value}</li>`;
+            //     },
+            //     show(){
+            //         let ul=document.querySelector("ul");
+            //         ul.innerHTML="";
+            //         this.data.forEach(function(value){
+            //             ul.innerHTML+=`<li>${value}</li>`;
 
-                    })
-                }
+            //         })
+            //     }
 
-            };
-            document.querySelector("[name='keywords']").addEventListener('blur',function(){
-                obj.getWord(this.value);
-                obj.show();
+            // };
+            // document.querySelector("[name='keywords']").addEventListener('blur',function(){
+            //     obj.getWord(this.value);
+            //     obj.show();
 
-            })
+            // })
+
+            // set实现并集交集差集
+            let a=new Set([1,2,3,4]);
+            let b=new Set([1,3,5,7,9]);
+            console.log(new Set([...a,...b]));
+            console.log([...a].filter(function(item){
+                return !b.has(item);
+            }))
+
+            console.log([...a].filter(function(item){
+                return b.has(item);
+            }))
         </script>
     </body>
 </html>
