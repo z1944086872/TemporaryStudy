@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <main>
+            <input type="text" name="keywords"/>
+            <ul></ul>
+        </main>
+        <script>
+
+            //set处理网站关键词
+            let obj={
+                data:new Set(),
+                getWord(word){
+                   this.data.add(word);
+
+
+
+                },
+                show(){
+                    let ul=document.querySelector("ul");
+                    ul.innerHTML="";
+                    this.data.forEach(function(value){
+                        ul.innerHTML+=`<li>${value}</li>`;
+
+                    })
+                }
+
+            };
+            document.querySelector("[name='keywords']").addEventListener('blur',function(){
+                obj.getWord(this.value);
+                obj.show();
+
+            })
+        </script>
+    </body>
+</html>
