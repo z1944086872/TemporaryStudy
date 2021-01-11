@@ -2,11 +2,40 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <style>
+            ul>li{
+                list-style: none;
+                border: solid 1px red;
+                padding: 4px;
+                width: 20%;
+                margin: 10px auto;
+                
+
+            }
+            ul>li>a{
+                list-style: none;
+                border: solid 1px red;
+                padding: 4px;
+                width: 20%;
+                margin: 0 40%;
+                align-content: center;
+
+            }
+            .remove{
+                background-color: red;
+            }
+           
+        </style>
     </head>
     <body>
         <main>
-            <input type="text" name="keywords"/>
-            <ul></ul>
+            <!-- <input type="text" name="keywords"/>
+            <ul></ul> -->
+            <ul>
+                <li>123<a href="javascript:;">todo1</a></li>
+                <li>123<a href="javascript:;">todo2</a></li>
+                <li>123<a href="javascript:;">todo3</a></li>
+            </ul>
         </main>
         <script>
 
@@ -36,16 +65,57 @@
             // })
 
             // set实现并集交集差集
-            let a=new Set([1,2,3,4]);
-            let b=new Set([1,3,5,7,9]);
-            console.log(new Set([...a,...b]));
-            console.log([...a].filter(function(item){
-                return !b.has(item);
-            }))
+            // let a=new Set([1,2,3,4]);
+            // let b=new Set([1,3,5,7,9]);
+            // console.log(new Set([...a,...b]));
+            // console.log([...a].filter(function(item){
+            //     return !b.has(item);
+            // }))
 
-            console.log([...a].filter(function(item){
-                return b.has(item);
-            }))
+            // console.log([...a].filter(function(item){
+            //     return b.has(item);
+            // }))
+
+            // todo案列
+            // class ToDo{
+            //     constructor(){
+            //         this.items=document.querySelectorAll("ul>li");
+            //         this.lists=new WeakSet();
+            //         // this.lists.add(["123");
+            //         this.items.forEach((item)=>{//不能用function在class内部
+            //             this.lists.add(item);
+            //         })
+            //         console.log(this.lists);
+
+            //     }
+            //     run(){
+            //         this.addEvent();
+            //     }
+            //     addEvent(){
+                    
+            //         this.items.forEach(item=>{
+            //             let a=item.querySelector('a');
+            //             console.log(a);
+                        
+            //             a.classList
+                        
+            //             a.addEventListener('click',event=>{
+            //                 let paraentElement1=event.target.parentElement;
+            //                 console.log(paraentElement1);
+            //                 if(this.lists.has(paraentElement1)){
+            //                     paraentElement1.classList.add("remove");
+            //                     alert(this.lists.delete(paraentElement1));
+                                
+            //                 }else{
+            //                     alert("错误");
+            //                 }
+            //             })
+
+            //         })
+            //     }
+            // }
+            // new ToDo().run();
+
         </script>
     </body>
 </html>
