@@ -55,26 +55,28 @@
 
 
             // 表单提交验证 
-            function post(){
-                let map2=new Map();
-            let inputs=document.querySelectorAll("[error");
-            inputs.forEach(item=>{
-                map2.set(item,{
-                    error:item.getAttribute("error"),
-                    status:item.checked
-                })
-            });
-            return [...map2].every(([elem,config])=>{//结构特性分配参数
-                if(config.status===false){
-                    alert(config.error);
+            // function post(){
+            //     let map2=new Map();
+            // let inputs=document.querySelectorAll("[error");
+            // inputs.forEach(item=>{
+            //     map2.set(item,{
+            //         error:item.getAttribute("error"),
+            //         status:item.checked
+            //     })
+            // });
+            // return [...map2].every(([elem,config])=>{//结构特性分配参数
+            //     if(config.status===false){
+            //         alert(config.error);
                     
-                }
-                return config.status;
-            })
-            console.log(map2);
-            return false;
+            //     }
+            //     return config.status;
+            // })
+            // console.log(map2);
+            // return false;
 
-            }
+            // }
+            // let a=new Map([[123,{}]]);
+            // console.log(a.get(123));
             
 
         </script>
