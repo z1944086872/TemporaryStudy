@@ -97,6 +97,21 @@
         // let a=new Article();
         // console.log(a.get({id:1,cat:"js"}));
 
+            // 随机颜色
+            function Color(elem){
+                this.elem=elem;
+                this.colors=['red','black','green'];
+                this.run=function(){
+                    setInterval(function(){
+                        let i=Math.floor(Math.random()*this.colors.length);
+                        this.elem.style.backgroundColor=this.colors[i];
+
+                    }.bind(this),1000);
+                }
+            }
+            let a=new Color(document.body);
+            a.run();
+
         
         
          </script>
