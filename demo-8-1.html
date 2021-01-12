@@ -5,6 +5,7 @@
     </head>
     <body>
         <main>
+            <button>按钮</button>
 
         </main>
         <script>
@@ -50,7 +51,38 @@
         //     star(--num);
             
         // }
-        star(5);
+        // star(5);
+
+        // 展开语法
+        // function sum(discount,...price){
+        //     return (price.reduce((a,b)=>a+b))*(1-discount);
+
+        // }
+        // console.log( sum(0,100,200,300));
+
+        // let Dom={
+        //     site:"test",
+        //     bind:function(){
+        //         const button=document.querySelector("button");
+        //         function test(){
+        //             console.log(this);
+        //         }
+        //         test();
+        //         button.addEventListener("click",function(){
+        //             console.log(this);
+        //         })
+
+        //     }
+        // }
+        function test(name){
+            this.name=name;
+            console.log(this);
+        }
+        let a=new test(123);
+        console.log(this.name);
+
+        
+        
          </script>
     </body>
 </html>
