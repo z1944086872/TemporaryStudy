@@ -8,6 +8,21 @@
 
         </main>
         <script>
+            //for循环中的varlet
+
+            for(var i=1;i<=3;i++){
+                setTimeout(function(){
+                    console.log(i);
+
+                },1000);
+            }
+            for (let j=1;j<=3;j++){
+                console.time("test2");
+                setTimeout(() => {
+                    console.log(j);
+                    
+                }, 1000);
+            }
             
         </script>
     </body>
