@@ -11,12 +11,19 @@
         <script>
 
             // 解构
-            let user={name:"测试",url:"www.baidu.com"};
-            let {url:a,name:b,title="测试2"}=user;
-            console.log(a,b,title);
+            // let user={name:"测试",url:"www.baidu.com"};
+            // let {url:a,name:b,title="测试2"}=user;
+            // console.log(a,b,title);
 
 
-            //
+            //自己属性的检测
+            function oss(option){
+                if(!option.hasOwnProperty('host')){
+                    throw new Error('必须设置主机地址')
+                }
+
+            }
+            oss({user:'admin'});
         </script>
     </body>
 </html>
