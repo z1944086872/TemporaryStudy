@@ -17,13 +17,32 @@
 
 
             //自己属性的检测
-            function oss(option){
-                if(!option.hasOwnProperty('host')){
-                    throw new Error('必须设置主机地址')
-                }
+            // function oss(option){
+            //     if(!option.hasOwnProperty('host')){
+            //         throw new Error('必须设置主机地址')
+            //     }
 
+            // }
+            // oss({user:'admin'});
+
+            //assign合并对象
+            // function upload(params){
+            //     let options={
+            //         size:19999
+            //     };
+            //     options=Object.assign(options,params);
+            //     console.log(JSON.stringify(options,null,20));
+            // }
+            // upload({size:2000,name:"哈哈"});
+
+            // 遍历操作
+            let hd={
+                name:"后盾人",
+                year:"2021"
             }
-            oss({user:'admin'});
+            console.log(Object.keys(hd));
+            console.log(Object.values(hd));
+            console.log(JSON.stringify(Object.entries(hd),null,2));
         </script>
     </body>
 </html>
