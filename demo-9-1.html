@@ -60,40 +60,40 @@
             // });
 
             //利用闭包排序商品
-             let shop=[
-                 {
-                     name:"衣服",
-                     price:300,
-                     click:300
-                 },
-                 {
-                     name:"鞋子",
-                     price:200,
-                     click:200
-                 },
-                 {
-                     name:"外套",
-                     price:100,
-                     click:100
-                 }
-             ];
-             function order(firld,type="asc"){
-                 if(type=="asc"){
-                    return function(a,b){
-                     return a[firld]-b[firld];
+            //  let shop=[
+            //      {
+            //          name:"衣服",
+            //          price:300,
+            //          click:300
+            //      },
+            //      {
+            //          name:"鞋子",
+            //          price:200,
+            //          click:200
+            //      },
+            //      {
+            //          name:"外套",
+            //          price:100,
+            //          click:100
+            //      }
+            //  ];
+            //  function order(firld,type="asc"){
+            //      if(type=="asc"){
+            //         return function(a,b){
+            //          return a[firld]-b[firld];
 
-                 };
-                 }
-                 else{
-                    return function(a,b){
-                     return b[firld]-a[firld];
+            //      };
+            //      }
+            //      else{
+            //         return function(a,b){
+            //          return b[firld]-a[firld];
 
-                 };
-                 }
+            //      };
+            //      }
                  
-             }
-             let hd=shop.sort(order("click"));
-             console.log(hd);
+            //  }
+            //  let hd=shop.sort(order("click"));
+            //  console.log(hd);
 
 
             
