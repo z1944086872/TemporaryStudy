@@ -21,7 +21,7 @@
         console.table(newarr);
 ```
 
-![image-20210110122942410](https://gitee.com/light19440868762/Images/raw/master/typoraimages /image-20210110122942410.png)
+![image-20210114213523158](https://gitee.com/light19440868762/Images/raw/master/typoraimages /image-20210114213523158.png)
 
 #### 参数说明：
 
@@ -60,7 +60,7 @@
         }));
 ```
 
-![image-20210110123245284](upload\image-20210110123245284.png)
+![image-20210114213348916](https://gitee.com/light19440868762/Images/raw/master/typoraimages /image-20210114213348916.png)
 
 **尾记**：
 

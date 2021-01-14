@@ -1,81 +1,69 @@
-# 解构模式
+- - **前言：**本博客系列为学习后盾人js教程过程中的记录与产出，如果对你有帮助，欢迎关注，点赞，分享。不足之处也欢迎指正，作者会积极思考与改正。
 
-#### 函数编程与面向对象编程
+    #### 使用效果：
 
-- 函数编程会将变量暴露到全局
-
-  ![img](https://img.mubu.com/document_image/24af3f19-07aa-4b9a-b746-edbb721111e8-2585883.jpg)
-
-- 面向对象 将函数赋值给对象的属性叫方法 也可简写
-
-  ![img](https://img.mubu.com/document_image/e4b58494-94d3-42aa-a007-53e640da84a8-2585883.jpg)
-
-  ![img](https://img.mubu.com/document_image/8a3f87f0-1bef-4218-85af-97daa158b9d9-2585883.jpg)
-
-- 属性的基本操作方法
-
-  - 1点操作
-
-    ![img](https://img.mubu.com/document_image/230572f1-9804-4c51-82e4-1f88c36ce8bd-2585883.jpg)
-
-  - 2中括号 特殊情况必须中括号
-
-    ![img](https://img.mubu.com/document_image/06922cc3-659a-4959-bff8-a1983d047076-2585883.jpg)
-
-  - 对比
-
-    ![img](https://img.mubu.com/document_image/012d41ef-6a85-48c6-80ef-d4c29279299d-2585883.jpg)
-
-    ![img](https://img.mubu.com/document_image/201bb9fa-3d83-4b8b-a7dd-18c1de4e0e0f-2585883.jpg)
-
-    ![img](https://img.mubu.com/document_image/06922cc3-659a-4959-bff8-a1983d047076-2585883.jpg)
-
-  - 动态增删
-
-    ![img](https://img.mubu.com/document_image/5558e5a6-3e07-4eac-b796-1de3f39b6a30-2585883.jpg)
-
-- 对象的引用类型
-
-  - 引用类型
-
-    ![img](https://img.mubu.com/document_image/94a199ee-f8de-4866-9c2e-ec1c2193b361-2585883.jpg)
-
-    ![img](https://img.mubu.com/document_image/2759683a-7b73-4e42-b281-d38acd7902f6-2585883.jpg)
-
-- 展开语法在对象中的使用
-
-  - 展开语法完成参数合并
-
-    ![img](https://img.mubu.com/document_image/630a4e90-bc86-4a1e-932b-e2c8bce603c4-2585883.jpg)
-
-    ![img](https://img.mubu.com/document_image/7f997011-a2dc-4554-8833-62c408b40711-2585883.jpg)
-
-  - 对象中的同名属性会合并
-
-    ![img](https://img.mubu.com/document_image/5a44e60b-efe9-4b59-9a11-6705cb1cf188-2585883.jpg)
-
-- 解构赋值新增特性
-
-  - 拆开 两个名字一样可简写 注意，要记得声明
-
-    ![img](https://img.mubu.com/document_image/57005c48-4c79-4ae2-9a4f-7f39b2c30280-2585883.jpg)
-
-    ![img](https://img.mubu.com/document_image/56ccd77a-1e2c-483b-bc19-162db5ad46cc-2585883.jpg)
-
-    ![img](https://img.mubu.com/document_image/a33f84b4-a34f-4bd9-8ce7-83c9e1f99b83-2585883.jpg)
-
-  - 传参也可以解构
-
-    ![img](https://img.mubu.com/document_image/9ee2ccd7-8e84-4dd1-b756-289260352b85-2585883.jpg)
-
-  - 解构也可以部分解构
-
-    ![img](https://img.mubu.com/document_image/c226ef82-64b7-4a40-b284-ffac018e98d6-2585883.jpg)
-
-- 严格模式中的结构差异
-
-  - 不写let 必须声明
-
-    ![img](https://img.mubu.com/document_image/1d4c305b-a5fb-45c9-8295-eef65d080675-2585883.jpg)
-
-    ![img](https://gitee.com/light19440868762/Images/raw/master/typoraimages /1d8dcb09-fda7-4c1f-a0ef-086e6a090be5-2585883.jpg)
+    可以返回参数函数为真的值
+  
+    ```
+     //情景：实现从stu数组里面提取js成绩大于60的项
+     
+     let stu=[
+                    {name:"张三",js:90},
+                    {name:"李四",js:50},
+                    {name:"王五",js:60},
+            ];//定义数组
+            let newarr=stu.filter(function(item,index,arr0){//调用filter方法，传入函数，若函数返回值为真，则返回该项
+                // console.log(index);
+                return item.js>60;//当每项元素的元素的js成绩大于60时返回真
+            });
+            console.table(newarr);
+    ```
+    
+    ![image-20210114213523158](https://gitee.com/light19440868762/Images/raw/master/typoraimages /image-20210114213523158.png)
+    
+    #### 参数说明：
+    
+    参数名称不重要，重要的是第几个参数
+    
+    | 参数          | 作用                                               |
+    | ------------- | -------------------------------------------------- |
+    | function      | 执行方法，函数返回真的项会被收集                   |
+    | 第一参数item  | 指被调用函数stu的遍历中的当前项{name:"张三",js:90} |
+    | 第二参数index | 指被调用函数stu的遍历中的当前项的索引值0,1,2       |
+    | 第三参数arr   | 指被调用函数stu                                    |
+    
+    
+    
+    #### 方法原理解析：
+    
+    ```
+     //filter的实现原理
+            let stu=[
+                    {name:"张三",js:90},
+                    {name:"李四",js:50},
+                    {name:"王五",js:60},
+            ];
+    
+            function filter1(arr,callback){//arr为数组，callback为函数
+                let newArr=[];
+                for(const value of arr){//遍历数组
+                    if(callback(value)===true){//将每个值放入回调函数，返回真执行
+                        newArr.push(value);//将值加入数组
+                    }
+                }
+                return newArr;//返回结果
+            }
+            console.log(filter1(stu,function(value){
+                return value.js>60;
+            }));
+    ```
+    
+    ![image-20210114213348916](https://gitee.com/light19440868762/Images/raw/master/typoraimages /image-20210114213348916.png)
+    
+    **尾记**：
+    
+    有任何问题，欢迎私聊哟~~~
+    
+    也可关注公众号“诗与凉风”联系作者哦~~
+    
+    <img src="https://gitee.com/light19440868762/Images/raw/master/typoraimages /微信图片_20200706212958.jpg" alt="微信图片_20200706212958" style="zoom:33%;" />
