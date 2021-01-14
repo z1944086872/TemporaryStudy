@@ -57,6 +57,27 @@
             // }
             // document.body.appendChild(ul);
 
+            //递归实现深拷贝
+            let data={
+                name:"测试",
+                user:{
+                    name:"测试username"
+                }
+
+            };
+            function copy(object) {
+                let res={};
+                for(let i in object){
+                    res[i]=typeof object[i]=="object"?copy(object[i]):object[i];
+                }
+                return res;
+                
+            }
+            
+            let hd=copy(data);
+            hd.user.name="测试2";
+            console.log(JSON.stringify(data,null,2));
+            console.log(JSON.stringify(hd,null,2));
         </script>
     </body>
 </html>
