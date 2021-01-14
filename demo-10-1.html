@@ -81,29 +81,56 @@
 
 
              //递归实现深拷贝2
-            let data={
-                name:"测试",
-                user:{
-                    name:"测试username"
-                },
-                arr:[1,2,3]
+            // let data={
+            //     name:"测试",
+            //     user:{
+            //         name:"测试username"
+            //     },
+            //     arr:[1,2,3]
 
 
-            };
-            function copy(object) {
-                let res=object instanceof Array?[]:{};
-                for(let [k,v] of Object.entries(object)){
-                    res[k]= typeof v=="object"?copy(v):v;
-                }
-                return res;
+            // };
+            // function copy(object) {
+            //     let res=object instanceof Array?[]:{};
+            //     for(let [k,v] of Object.entries(object)){
+            //         res[k]= typeof v=="object"?copy(v):v;
+            //     }
+            //     return res;
                 
-            }
+            // }
             
-            let hd=copy(data);
-            hd.user.name="测试2";
-            hd.arr.push(3);
-            console.log(JSON.stringify(data,null,2));
-            console.log(JSON.stringify(hd,null,2));
+            // let hd=copy(data);
+            // hd.user.name="测试2";
+            // hd.arr.push(3);
+            // console.log(JSON.stringify(data,null,2));
+            // console.log(JSON.stringify(hd,null,2));
+
+            // 工厂创建对象
+            // function user(name,age){
+            //     return {
+            //         name,
+            //         age,
+            //         show:function(){
+            //             console.log(this);
+            //         }
+            //     };
+            // };
+            // let a=user("hdr",12);
+            // a.show();
+            // console.log(a.name,a.age);
+
+            // // 构造函数创建对象
+            // function User(name,age){
+            //     this.name=name;
+            //     this.age=age;
+            //     this.show=function(){
+            //         console.log(this);
+            //     }
+            // }
+
+            // let b=new User("hdr2",22);
+            // a.show();
+            // console.log(a.name,a.age);
         </script>
     </body>
 </html>
