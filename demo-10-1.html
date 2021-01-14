@@ -131,6 +131,26 @@
             // let b=new User("hdr2",22);
             // a.show();
             // console.log(a.name,a.age);
+
+            //封装与抽象
+            function User(name,age){
+                let data={name,age};
+                let info=function(){
+                    return data.age>50?"老年":"青年";
+                }
+                this.show=function(){
+                    console.log(data.name+info());
+                }
+            }
+
+            let b=new User("hdr2",22);//因为new完就已经确定了无法改变，只留下了show方法可以被调用 块级作用域 属性与变量的区别
+            // b.data={name:"123",age:12};
+            // b.data.name="123";
+            console.log(b);
+            b.show();
+            
+
+            
         </script>
     </body>
 </html>
