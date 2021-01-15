@@ -232,19 +232,30 @@
             // console.log(a);
 
             // 代理
-            let a={name:"a"};
-            let proxy=new Proxy(a,{
-                get(obj,property){
-                    return obj[property];
-                },
-                set(obj,property,value){
-                    obj[property]=value;
-                    return true;
-                }
-            });
-            console.log(a.name);
-            a.name="b";
-            console.log(a.name);
+            // let a={name:"a"};
+            // let proxy=new Proxy(a,{
+            //     get(obj,property){
+            //         return obj[property];
+            //     },
+            //     set(obj,property,value){
+            //         obj[property]=value;
+            //         return true;
+            //     }
+            // });
+            // console.log(a.name);
+            // a.name="b";
+            // console.log(a.name);
+
+            // 代理控制函数
+            // function test(num){
+            //     console.log(num);
+            // }
+            // let a=new Proxy(test,{
+            //     apply(func,obj,arr){
+            //         console.log(obj,arr);
+            //     }
+            // })
+            // a.call({name:"123"},[1,2]);
 
 
             
