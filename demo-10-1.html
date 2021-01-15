@@ -160,6 +160,23 @@
             // })
             // console.log(user);
             // console.log(JSON.stringify(Object.getOwnPropertyDescriptor(user,'name'),null,2));
+
+
+            // 访问器保护数据
+            const user={
+                data:{name:"测试人",age:88},
+                set age(value){
+                    if(typeof value!="number"||age<0||age>100){
+                        throw new Error("年龄格式错误");
+                    }
+                    data.age=value;
+                },
+                get age(){
+                    return this.data.age;
+
+                }
+            }
+            console.log(user.age);
            
 
 
