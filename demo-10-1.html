@@ -180,21 +180,56 @@
             
 
             // TOKEN的读写操作
-            let Request={
-                set token(content){
-                    localStorage.setItem("token",content);
-                },
-                get token(){
-                    let token=localStorage.getItem("token");
-                    if(!token){
-                        throw new Error("请登录");
-                    }
-                    return token;
-                }
-            }
-            Request.token="123456";
-            console.log(Request.token);
+            // let Request={
+            //     set token(content){
+            //         localStorage.setItem("token",content);
+            //     },
+            //     get token(){
+            //         let token=localStorage.getItem("token");
+            //         if(!token){
+            //             throw new Error("请登录");
+            //         }
+            //         return token;
+            //     }
+            // }
+            // Request.token="123456";
+            // console.log(Request.token);
            
+            // 构造函数创建访问器
+            function User(name,age){
+                let data={name,age};
+                Object.defineProperties(this,{
+                    name:{
+                        get(){
+                            return data.name;
+                        },
+                        set(value){
+                            if(value.trim()=""||value.length()>20){
+                                throw new Error("用户名不合法");
+                            }
+                            data.name=value;
+
+                        }
+                    },
+                    age:{
+                        get(){
+                            return data.age;
+                        },
+                        set(value){
+                            if(value.trim()=""||typeof age !="number"){
+                                throw new Error("年龄不合法");
+                            }
+                            data.age=value;
+
+                        }
+                    }
+
+
+                })
+
+            }
+            let a=new User("abc",12);
+            console.log(a);
 
 
             
