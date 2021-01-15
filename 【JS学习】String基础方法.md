@@ -2,6 +2,8 @@
 
 **前言：**本博客系列为学习后盾人js教程过程中的记录与产出，如果对你有帮助，欢迎关注，点赞，分享。不足之处也欢迎指正，作者会积极思考与改正。
 
+[TOC]
+
 #### 定义：
 
 两种方法，存在一点点区别。new方法定义出来的是对象，方法2是字符串，但使用上没多大区别，后台会自动将字符串转化为对象，因此也可以使用对象的方法。
@@ -95,6 +97,60 @@ let a="变量1";
             console.log(hd.slice(-2));//fg 从第（length-2）到最后
             console.log(hd.substring(3, -9)); //abc 负数转为0 从0到第3个 不包含第3个
             console.log(hd.substr(-3, 2)); //ef 从后面第三个开始取两个  从length-3开始取两个
+```
+
+#### 查找字符串
+
+```
+//原始方法 从前往后indexof(字符串，开始位置)与lastIndexof(字符串，结束位置) 返回下标
+            console.log("123456".indexOf("1"));//0
+            console.log('123456'.lastIndexOf('4', 5)); //3 从0-5中检索4，返回下标  找不到返回-1
+
+            // includes（字符串，开始位置）方法 返回bool
+            console.log('123456'.includes('4')); //true
+            console.log('123456'.includes('4', 3)); //true  
+            
+            // 字符串检索
+            const word=['php',"css"];
+            const string1="是否存在php与css";
+            let status1=word.some(word=>{
+                console.log(word);
+                return string1.includes(word);
+            });
+            if(status1){
+                console.log("找到了");
+            }
+            
+            
+            
+            // 是否以字符开始
+            console.log("123456".startsWith("12"));//true
+            console.log("123456".startsWith("12",2));//false
+            // 是否以字符结束
+            console.log("123456".endsWith("56"));//true
+            console.log("123456".endsWith("56",5));//false
+```
+
+
+
+#### 替换字符串
+
+```
+
+```
+
+#### 重复字符串
+
+```
+
+```
+
+
+
+#### 字符串的类型转换
+
+```
+
 ```
 
 **尾记**：

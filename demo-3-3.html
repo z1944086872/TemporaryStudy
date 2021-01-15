@@ -52,20 +52,20 @@
             // console.log("abc".charAt(2));//c
             // console.log("abc"[2]);//c
 
-            let hd = 'abcdefg';
-            console.log(hd.slice(3)); //defg  从第三个开始到最后
-            console.log(hd.substr(3)); //defg  从第三个开始到最后
-            console.log(hd.substring(3)); //defg 从第三个开始到最后
+            // let hd = 'abcdefg';
+            // console.log(hd.slice(3)); //defg  从第三个开始到最后
+            // console.log(hd.substr(3)); //defg  从第三个开始到最后
+            // console.log(hd.substring(3)); //defg 从第三个开始到最后
 
-            console.log(hd.slice(3, 6)); //def  从第3-6个 不包含6
-            console.log(hd.substring(3, 6)); //def 从第3-6个 不包含6
-            console.log(hd.substring(3, 0)); //abc 从第0-3个 不包含3
-            console.log(hd.substr(3, 6)); //defg 从第3个往后取6个
+            // console.log(hd.slice(3, 6)); //def  从第3-6个 不包含6
+            // console.log(hd.substring(3, 6)); //def 从第3-6个 不包含6
+            // console.log(hd.substring(3, 0)); //abc 从第0-3个 不包含3
+            // console.log(hd.substr(3, 6)); //defg 从第3个往后取6个
 
-            console.log(hd.slice(3, -1)); //def 从第3个到（length-1）个  不包含（length-1）
-            console.log(hd.slice(-2));//fg 从第（length-2）到最后
-            console.log(hd.substring(3, -9)); //abc 负数转为0 从0到第3个 不包含第3个
-            console.log(hd.substr(-3, 2)); //ef 从后面第三个开始取两个  从length-3开始取两个
+            // console.log(hd.slice(3, -1)); //def 从第3个到（length-1）个  不包含（length-1）
+            // console.log(hd.slice(-2));//fg 从第（length-2）到最后
+            // console.log(hd.substring(3, -9)); //abc 负数转为0 从0到第3个 不包含第3个
+            // console.log(hd.substr(-3, 2)); //ef 从后面第三个开始取两个  从length-3开始取两个
 
 
 
@@ -87,7 +87,25 @@
             // }
             // document.body.innerHTML=show();
 
-            // 字符串检索
+
+
+            // //原始方法 从前往后indexof(字符串，开始位置)与lastIndexof(字符串，结束位置) 返回下标
+            // console.log("123456".indexOf("1"));//0
+            // console.log('123456'.lastIndexOf('4', 5)); //3 从0-5中检索4，返回下标  找不到返回-1
+
+            // // includes（字符串，开始位置）方法 返回bool
+            // console.log('123456'.includes('4')); //true
+            // console.log('123456'.includes('4', 3)); //true  
+
+            // // 是否以字符开始
+            // console.log("123456".startsWith("12"));//true
+            // console.log("123456".startsWith("12",2));//false
+            // // 是否以字符结束
+            // console.log("123456".endsWith("56"));//true
+            // console.log("123456".endsWith("56",5));//false
+            
+
+            // // 字符串检索
             // const word=['php',"css"];
             // const string1="是否存在php与css";
             // let status1=word.some(word=>{
