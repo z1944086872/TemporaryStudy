@@ -17,7 +17,20 @@
             // };
             // hd.show();
 
-            
+            //原型链
+
+            let hd=new Object();
+            Object.prototype.show=function(){
+                console.log("show");
+            };
+            function User(){};
+            let user=new User();
+            user.show();
+            console.dir(Object);
+            console.dir(User);
+            console.dir(user);
+
+
         </script>
     </body>
 </html>
