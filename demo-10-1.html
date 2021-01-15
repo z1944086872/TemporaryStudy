@@ -163,20 +163,37 @@
 
 
             // 访问器保护数据
-            const user={
-                data:{name:"测试人",age:88},
-                set age(value){
-                    if(typeof value!="number"||age<0||age>100){
-                        throw new Error("年龄格式错误");
-                    }
-                    data.age=value;
-                },
-                get age(){
-                    return this.data.age;
+            // const user={
+            //     data:{name:"测试人",age:88},
+            //     set age(value){
+            //         if(typeof value!="number"||age<0||age>100){
+            //             throw new Error("年龄格式错误");
+            //         }
+            //         data.age=value;
+            //     },
+            //     get age(){
+            //         return this.data.age;
 
+            //     }
+            // }
+            // console.log(user.age);
+            
+
+            // TOKEN的读写操作
+            let Request={
+                set token(content){
+                    localStorage.setItem("token",content);
+                },
+                get token(){
+                    let token=localStorage.getItem("token");
+                    if(!token){
+                        throw new Error("请登录");
+                    }
+                    return token;
                 }
             }
-            console.log(user.age);
+            Request.token="123456";
+            console.log(Request.token);
            
 
 
