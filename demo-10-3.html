@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+    </head>
+    <style>
+        .error{
+            border: solid 1px red;
+        }
+    </style>
+    <body>
+        <main>
+            <input type="text" validate rule="max:12,min:3"/><br/>
+            <input type="text" validate rule="max:12,isNumber"/>
+
+        </main>
+        <script>
+            //代理实现表单
+            class Validate{
+                max(value,len){
+                    return value.length<len;
+                };
+                min(value,len){
+                    return value.length>len;
+                };
+                isNumber(value){
+                    return /^\d+$/.test(value);
+
+                }
+
+            }
+            function ProxyFactory(target){
+                return new Proxy(target,{
+                   get(target,key){
+                       return target[key];
+
+                   } ,
+                   set(target,key,el){
+                       const rule=el.getAttribute("rule");
+                       const validate=new Validate();
+                       let state=rule.split(",").every(item=>{
+                           const info=item.split(":");
+                           return validate[info[0]](el.value,info[1]);
+
+
+                       })
+                       el.classList[state?"remove":"add"]("error");
+                       return true;
+
+                   }
+                })
+            }
+            const proxy=ProxyFactory(document.querySelectorAll("[validate]"));
+            proxy.forEach(element => {
+                element.addEventListener("keyup",function(){
+                    proxy[element]=this;
+                })
+                
+            });
+
+
+        </script>
+    </body>
+</html>
