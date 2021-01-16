@@ -58,33 +58,53 @@
             // });
             // console.log(buts[0].innerHTML);
             // js中的继承是原型的继承，而不是构造函数的原型
-            function User(){
+            // function User(){
 
-            };
-            User.prototype.name=function(){
-                console.log("name");
-            }
+            // };
+            // User.prototype.name=function(){
+            //     console.log("name");
+            // }
+            // function Admin(){};
+            // Admin.prototype=Object.create(User.prototype);
+            // // Admin.prototype.constructor=Admin;
+            // Object.defineProperty(Admin.prototype,'constructor',{
+            //     value:Admin,
+            //     enumerable:false
+            // })
+            // console.log(Object.getOwnPropertyDescriptors(Admin.prototype));
+            // Admin.prototype.show=function(){
+            //     console.log("show");
+            // }
+            // // Admin.prototype.__proto__=User.prototype;
+            // let hd=new Admin();
+            // for(let a in hd){
+            //     console.log(a);
+
+            // }
+            // console.dir(hd)
+            // console.dir(User)
+            // hd.name();
+            // hd.show();
+
+            // 多态的实现
+            function User(){};
             function Admin(){};
+            function Menber(){};
+            User.prototype.show=function(){
+                console.log("我是"+this.des());
+            }
+            User.prototype.des=function(){
+                return "用户";
+            };
             Admin.prototype=Object.create(User.prototype);
-            // Admin.prototype.constructor=Admin;
-            Object.defineProperty(Admin.prototype,'constructor',{
-                value:Admin,
-                enumerable:false
-            })
-            console.log(Object.getOwnPropertyDescriptors(Admin.prototype));
-            Admin.prototype.show=function(){
-                console.log("show");
-            }
-            // Admin.prototype.__proto__=User.prototype;
-            let hd=new Admin();
-            for(let a in hd){
-                console.log(a);
-
-            }
-            console.dir(hd)
-            console.dir(User)
-            hd.name();
-            hd.show();
+            Menber.prototype=Object.create(User.prototype);
+            Admin.prototype.des=function(){
+                return "管理员";
+            };
+            Menber.prototype.des=function(){
+                return "普通成员";
+            };
+            new Admin().show();
 
         </script>
     </body>
