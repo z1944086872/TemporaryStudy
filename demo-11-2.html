@@ -66,12 +66,23 @@
             }
             function Admin(){};
             Admin.prototype=Object.create(User.prototype);
+            // Admin.prototype.constructor=Admin;
+            Object.defineProperty(Admin.prototype,'constructor',{
+                value:Admin,
+                enumerable:false
+            })
+            console.log(Object.getOwnPropertyDescriptors(Admin.prototype));
             Admin.prototype.show=function(){
                 console.log("show");
             }
             // Admin.prototype.__proto__=User.prototype;
             let hd=new Admin();
+            for(let a in hd){
+                console.log(a);
+
+            }
             console.dir(hd)
+            console.dir(User)
             hd.name();
             hd.show();
 
