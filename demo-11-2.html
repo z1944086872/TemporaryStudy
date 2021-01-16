@@ -51,13 +51,20 @@
             // xg.show();
 
             //dom节点借用arr方法
-            let buts=document.querySelectorAll("button");
-            console.dir(Array);
-            buts=new Array().filter.call(buts,item=>{
-                return item.hasAttribute("class");
-            });
-            console.log(buts[0].innerHTML);
+            // let buts=document.querySelectorAll("button");
+            // console.dir(Array);
+            // buts=new Array().filter.call(buts,item=>{
+            //     return item.hasAttribute("class");
+            // });
+            // console.log(buts[0].innerHTML);
+            function User(){
 
+            };
+            User.prototype.name=function(){
+                console.log("username")''
+            }
+            let hd=new User();
+            hd.name();
 
         </script>
     </body>
