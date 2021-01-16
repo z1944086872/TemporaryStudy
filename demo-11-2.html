@@ -8,23 +8,45 @@
 
         </main>
         <script>
-            //设置和得到原型
-            let a={
-                name:"a"
-            };
-            let b={
-                name:"b",
-                show(){
-                    console.log(this.name);
-                }
-            };
+            // 设置和得到原型
+            // let a={
+            //     name:"a"
+            // };
+            // let b={
+            //     name:"b",
+            //     show(){
+            //         console.log(this.name);
+            //     }
+            // };
             
-            Object.setPrototypeOf(a,b);
-            console.dir(a);
-            console.dir(b);
-            a.show();
-            b.show();
-            console.log(Object.getPrototypeOf(a));
+            // Object.setPrototypeOf(a,b);
+            // console.dir(a);
+            // console.dir(b);
+            // a.show();
+            // b.show();
+            // console.log(Object.getPrototypeOf(a));
+            // console.log(a instanceof b);
+
+            //根据对象创建新的对象
+            // function User(name){
+            //     this.name=name
+            // };
+            // User.prototype={
+            //     constructor:User,
+            //     show(){
+            //     console.log(this.name);
+            // }
+
+            // };
+            // let user=new User("user");
+            // function test(obj,...arg){
+            //     let con=Object.getPrototypeOf(obj).constructor;
+            //     return new con(...arg);
+            // }
+            // let xg=test(user,"xg");
+            // console.dir(user);
+            // console.dir(xg);
+            // xg.show();
 
         </script>
     </body>
