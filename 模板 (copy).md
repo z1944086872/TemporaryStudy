@@ -1,29 +1,16 @@
-# 【JS学习】数组过滤方法的使用filter
+# 【JS学习】模板
 
 **前言：**本博客系列为学习后盾人js教程过程中的记录与产出，如果对你有帮助，欢迎关注，点赞，分享。不足之处也欢迎指正，作者会积极思考与改正。
-
-[TOC]
 
 #### 使用效果：
 
 可以返回参数函数为真的值
 
 ```
- //情景：实现从stu数组里面提取js成绩大于60的项
- 
- let stu=[
-                {name:"张三",js:90},
-                {name:"李四",js:50},
-                {name:"王五",js:60},
-        ];//定义数组
-        let newarr=stu.filter(function(item,index,arr0){//调用filter方法，传入函数，若函数返回值为真，则返回该项
-            // console.log(index);
-            return item.js>60;//当每项元素的元素的js成绩大于60时返回真
-        });
-        console.table(newarr);
+
 ```
 
-![image-20210114213523158](https://gitee.com/light19440868762/Images/raw/master/typoraimages /image-20210114213523158.png)
+
 
 #### 参数说明：
 
@@ -62,7 +49,7 @@
         }));
 ```
 
-![image-20210114213348916](https://gitee.com/light19440868762/Images/raw/master/typoraimages /image-20210114213348916.png)
+![image-20210110123245284](upload/image-20210110123245284.png)
 
 **尾记**：
 

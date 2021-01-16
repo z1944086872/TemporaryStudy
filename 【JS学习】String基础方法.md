@@ -136,13 +136,34 @@ let a="变量1";
 #### 替换字符串
 
 ```
+ // 替换字符串
+            // 方法一
+            let hd="abcdefg";
+            console.log(hd.replace("abc","aaa"));//aaadefg  变量.replace(被替换字符串，替换字符串)
 
+            // 方法二 结合reduce来完成替换
+            // reduce((pre,word)=>{
+
+            // },string)其中初始中若没有string，则pre代表数组中的第一个元素，word代表第二个元素；若有string，则pre代表string，word代表第一个元素。初始后，pre代表return的值，word代表数组中的元素
+
+            // 案列：实现将string1中的关键词word加上超链接
+            const word=['php',"css"];
+            const string1="是否存在php与css";
+            const str2=word.reduce((pre,word)=>{
+                return pre.replace(word,`<a href="?w=${word}">${word}</a>`);
+            },string1);
+            console.log(str2);
+            document.body.innerHTML+=str2;
 ```
 
 #### 重复字符串
 
 ```
-
+ // 案列：电话号码模糊处理
+            function phone(num,len=3){
+                return String(num).slice(0,len*-1)+"*".repeat(len);
+            }
+            console.log(phone(1786245656));
 ```
 
 
@@ -150,7 +171,27 @@ let a="变量1";
 #### 字符串的类型转换
 
 ```
+            // 字符串转数字
+            // 字符串全部为数字时候
+            let string="1234";
+            console.log(string+1+2);//123412
+            console.log(Number(string)+1+2);//1237
+            //当头部为数字的字符串时
+            console.log(parseInt("12abc"));//12
 
+            // 数值转字符串
+            console.log(typeof (123+""));//string
+            let num=123;
+            console.log(typeof num.toString())//string
+
+            //字符串转数组
+            let a="abc";
+            console.log(a.split(""));//['a','b','c']
+
+            //数组转字符串
+            let b=['a','b','c'];
+            console.log(b.join(''));//abc
+            console.log(b.toString());//a,b,c
 ```
 
 **尾记**：
