@@ -57,14 +57,23 @@
             //     return item.hasAttribute("class");
             // });
             // console.log(buts[0].innerHTML);
+            // js中的继承是原型的继承，而不是构造函数的原型
             function User(){
 
             };
             User.prototype.name=function(){
-                console.log("username")''
+                console.log("name");
             }
-            let hd=new User();
+            function Admin(){};
+            Admin.prototype=Object.create(User.prototype);
+            Admin.prototype.show=function(){
+                console.log("show");
+            }
+            // Admin.prototype.__proto__=User.prototype;
+            let hd=new Admin();
+            console.dir(hd)
             hd.name();
+            hd.show();
 
         </script>
     </body>
