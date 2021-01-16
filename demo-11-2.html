@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+    </head>
+    <body>
+        <main>
+
+        </main>
+        <script>
+            //设置和得到原型
+            let a={
+                name:"a"
+            };
+            let b={
+                name:"b",
+                show(){
+                    console.log(this.name);
+                }
+            };
+            
+            Object.setPrototypeOf(a,b);
+            console.dir(a);
+            console.dir(b);
+            a.show();
+            b.show();
+            console.log(Object.getPrototypeOf(a));
+
+        </script>
+    </body>
+</html>
