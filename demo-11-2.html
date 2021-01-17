@@ -147,26 +147,37 @@
             // new Admin("xg",18).show();
 
             // 对象工厂派生对象并实现继承
-            function User(name,age){
-                this.name=name;
-                this.age=age;
-            };
-            User.prototype.show=function(){
-                console.log(this.name,this.age);
-            };
-            function admin(name,age){
-                const instance=Object.create(User.prototype);
-                // const instance={};
-                // instance.__proto__=User.prototype;
-                User.call(instance,name,age);
-                instance.show=function(){
-                    console.log(this.name,this.age);
-                };
-                return instance;
-            };
-            let a=admin("xg",18);
-            a.show();
-            console.dir(a);
+            // function User(name,age){
+            //     this.name=name;
+            //     this.age=age;
+            // };
+            // User.prototype.show=function(){
+            //     console.log(this.name,this.age);
+            // };
+            // function admin(name,age){
+            //     const instance=Object.create(User.prototype);
+            //     // const instance={};
+            //     // instance.__proto__=User.prototype;
+            //     User.call(instance,name,age);
+            //     instance.show=function(){
+            //         console.log(this.name,this.age);
+            //     };
+            //     return instance;
+            // };
+            // let a=admin("xg",18);
+            // a.show();
+            // console.dir(a);
+
+            // mixin实现多方法
+            let User={
+                show(){
+                    console.log("xg");
+                }
+            }
+
+            function Admin(){};
+            Admin.prototype=Object.assign(Admin.prototype,User);
+            new Admin().show();
 
 
 
