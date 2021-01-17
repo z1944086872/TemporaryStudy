@@ -30,6 +30,39 @@
             // let b=new User2("xg2");
             // console.dir(b);
 
+            // 静态属性的使用
+            class User{
+                static i=0;
+                show(){
+                    return i;
+                }
+            };
+            let a=new User();
+            let b=new User();
+            a.__proto__.constructor.i++;
+            console.log(b.__proto__.constructor.i);
+
+            function User2(){
+                
+
+            }
+            
+            let c=new User2();
+            let d=new User2();
+            // User2.__proto__.i=0;
+            // c.__proto__.constructor.__proto__.i++;
+            // console.dir(d.__proto__.constructor.__proto__.i);
+
+            // User2.i=0;
+            // c.__proto__.constructor.i++;
+            // console.dir(d.__proto__.constructor.i);
+
+            // User2.prototype.i=0;
+            // c.__proto__.i++;
+            // console.dir(d.__proto__.i);
+            
+            
+
         </script>
     </body>
 </html>
