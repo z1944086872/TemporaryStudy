@@ -64,19 +64,70 @@
             
             // console.dir();
             // 继承的原理实现
-            function User(name){
-                this.name=name;
-               console.log(this.name);
+            // function User(name){
+            //     this.name=name;
+            //    console.log(this.name);
 
-            }
-            function Admin(name){
-                User.call(this,name);
+            // }
+            // function Admin(name){
+            //     User.call(this,name);
                 
 
-            }
-            Admin.prototype=Object.create(User.prototype);
-            let a=new Admin("123");
-            console.dir(Admin);
+            // }
+            // Admin.prototype=Object.create(User.prototype);
+            // let a=new Admin("123");
+            // console.dir(Admin);
+
+            // super的原理
+            // class User{
+                
+            //     constructor(){
+            //         this.name="user";
+
+            //     }
+            //     show(){
+            //         console.log(this.name);
+            //     }
+            // }
+            // class Admin extends User{
+            //     #name3="Admin1";
+            //     constructor(){
+            //         super();
+            //         this.name1="Admin";
+            //         super.show();
+
+            //     }
+            //     show(){}
+            // }
+            // let a=new Admin();
+            // console.dir(new Admin);
+
+            // super调用父级的方法
+            class Common{
+                sum(){
+                    return this.data.reduce((t,c)=>t+c.price,0);
+                    
+                };
+            };
+            class Lesson extends Common{
+                constructor(data){
+                    super();
+                    this.data=data;
+                };
+                info(){
+                    return {
+                        total:super.sum(),
+
+                    };
+                };
+            };
+            let data=[
+                {price:50,name:"js"},
+                {price:60,name:"css"},
+                {price:70,name:"html"},
+        ];
+        let a=new Lesson(data);
+        console.log(a.info());
             
         </script>
     </body>
