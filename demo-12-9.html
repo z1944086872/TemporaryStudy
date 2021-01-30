@@ -48,21 +48,31 @@
             // console.log(c);
 
             // 私有属性
-            class Test{
-                #host="123456";
-                constructor(){
-                    this.name="123";
-                    console.log(name);
-                    console.log(this.#host);
-                }
-                #cheke=()=>{
+            // class Test{
+            //     #host="123456";
+            //     constructor(){
+            //         this.name="123";
+            //         console.log(name);
+            //         console.log(this.#host);
+            //     }
+            //     #cheke=()=>{
 
-                }
+            //     }
+
+            // }
+            // let a=new Test();
+            
+            // console.dir();
+            // 继承的原理实现
+            function User(){
 
             }
-            let a=new Test();
-            
-            console.dir();
+            function Admin(){
+
+            }
+            Admin.prototype=Object.create(User.prototype);
+            let a=new Admin();
+            console.dir(Admin);
         </script>
     </body>
 </html>
