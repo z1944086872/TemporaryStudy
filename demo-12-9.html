@@ -64,15 +64,20 @@
             
             // console.dir();
             // 继承的原理实现
-            function User(){
+            function User(name){
+                this.name=name;
+               console.log(this.name);
 
             }
-            function Admin(){
+            function Admin(name){
+                User.call(this,name);
+                
 
             }
             Admin.prototype=Object.create(User.prototype);
-            let a=new Admin();
+            let a=new Admin("123");
             console.dir(Admin);
+            
         </script>
     </body>
 </html>
