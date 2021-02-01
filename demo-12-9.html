@@ -103,31 +103,49 @@
             // console.dir(new Admin);
 
             // super调用父级的方法
-            class Common{
-                sum(){
-                    return this.data.reduce((t,c)=>t+c.price,0);
+        //     class Common{
+        //         sum(){
+        //             return this.data.reduce((t,c)=>t+c.price,0);
                     
-                };
-            };
-            class Lesson extends Common{
-                constructor(data){
-                    super();
-                    this.data=data;
-                };
-                info(){
-                    return {
-                        total:super.sum(),
+        //         };
+        //     };
+        //     class Lesson extends Common{
+        //         constructor(data){
+        //             super();
+        //             this.data=data;
+        //         };
+        //         info(){
+        //             return {
+        //                 total:super.sum(),
 
-                    };
-                };
-            };
-            let data=[
-                {price:50,name:"js"},
-                {price:60,name:"css"},
-                {price:70,name:"html"},
-        ];
-        let a=new Lesson(data);
-        console.log(a.info());
+        //             };
+        //         };
+        //     };
+        //     let data=[
+        //         {price:50,name:"js"},
+        //         {price:60,name:"css"},
+        //         {price:70,name:"html"},
+        // ];
+        // let a=new Lesson(data);
+        // console.log(a.info());
+        // 原型链的检测
+        let a={
+            name:"a"
+        };
+        let b={
+            __proto__:a,
+            name:"b"
+        }
+        function c(){name:"c"};
+        function d(){name:"d"};
+        function e(){name:"e"};
+        function f(){name:"f"};
+        d.__proto__=c.prototype;
+        Object.setPrototypeOf(f,e);
+        console.dir(b);
+        console.dir(d);
+        console.dir(f);
+        // console.log(d.__proto__==c)
             
         </script>
     </body>
