@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+    </head>
+    <body>
+
+    </body>
+    <!-- 2 开发一个模块管理引擎 -->
+    <script>
+        let module=(function(){
+            const moduleList={};
+            function define(name,modules,action){//名字，依赖，主体方法
+                modules.map((m,i)=>{
+                    modules[i]=moduleList[m];
+                })//按名字从modulist拿出模块
+
+                moduleList[name]=action.apply(null,modules);//将函数的执行结构压入容器，并将依赖当做参数压入
+
+            }
+            return {define};
+        }
+        )();
+        module.define('xg',[],function(){
+            return{
+                first(arr){
+                    return arr[0];
+                },
+                max(arr,key){
+                    return arr.sort((a,b)=>b[key]-a[key])[0];
+                }
+            }
+            
+
+        });
+
+        module.define('lesson',['xg'],function(hd){
+            let data=[
+                {name:"js",price:60},
+                {name:"html",price:70}
+            ];
+            
+            console.log(hd.first(data,"price"));
+
+        });
+        module.define('a',[],function(){
+            return{
+                site:"www.baidu.com",
+                name:"百度"
+            };
+        })
+        module.define('b',['a'],function(a){
+            a.name="谷歌";
+
+        });
+        module.define('c',['a'],function(a){
+            console.log(a.name);
+        });
+    </script>
+</html>
