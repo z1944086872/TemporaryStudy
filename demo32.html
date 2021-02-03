@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body></body>
+    <script>
+        
+        function test(){
+            var n=4399;
+            function add(){
+                n++;
+                console.log(`add-n为${n}`);
+                console.log(`add-this.n为${this.n}`);
+                console.log(`add-windows.n为${window.n}`);
+            };
+            console.log(`n为${n}`);
+            console.log(`this.n为${this.n}`);
+            console.log(`windows.n为${window.n}`);
+            return {n:n,add:add};
+        }
+        let result=test();
+        let result2=test();
+        result.add();
+        result.add();
+        console.log(result.n);
+        result2.add();
+        
+    </script>
+</html>
