@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Animal(){
+            this.name='animal';
+
+        }
+        Animal.prototype.fun=function(){
+            console.log("123");
+        }
+        console.dir(Animal);
+        function Cat(){};
+        Cat.prototype=Animal.prototype;
+        let cat=new Cat();
+        console.dir(cat);
+        function Dog(){};
+        Dog.prototype=new Animal;
+        let dog=new Dog();
+        console.dir(dog);
+    </script>
+    
+</body>
+</html>

@@ -3,18 +3,27 @@
     <head></head>
     <body>
         <script>
-            let promise=new Promise((resolve,reject)=>{
-                setTimeout(()=>{
-                    console.log("setTimeOut");
-                    reject();
-                },0);
-                console.log("promise");
-            }).then(value=>{
-                console.log("成功了");
-            },reject=>{
-                console.log("失败了");
-            });
-            console.log("主任务");
+            // let promise=new Promise((resolve,reject)=>{
+            //     setTimeout(()=>{
+            //         console.log("setTimeOut");
+            //         reject();
+            //     },0);
+            //     console.log("promise");
+            // }).then(value=>{
+            //     console.log("成功了");
+            // },reject=>{
+            //     console.log("失败了");
+            // });
+            // console.log("主任务");
+
+            // then也是一个promise
+            let promise2=new Promise((resolve,reject)=>{
+                reject("失败了1");
+            }).then(a=>{
+                console.log(a);
+            },r=>{
+                console.log(r);
+            }).then(a=>console.log("成功了"),r=>console.log(r));
         </script>
     </body>
 </html>
