@@ -51,7 +51,66 @@
 // console.log(quickSort(arr));
 // 括号匹配
 // 
+// 树
+// class TreeNode{
+//     constructor(value){
+//         this.value=value;
+//         this.left=null;
+//         this.right=null;
+//     }
 
+// }
+// let root =new TreeNode(1);
+// root.left=new TreeNode(2);
+
+// 反转单链表
+// function reverseList(head){
+//     if(!head||!head.next) return head;
+//     let cur=head;
+//     let pre=null;
+//     while(cur){
+//         var next =cur.next;
+//         cur.next=pre;
+//         pre=cur;
+//         cur=next;
+
+//     }
+//     head=pre;
+//     return head;
+
+// }
+// class List1{
+//     constructor(value){
+//         this.value=value;
+//         this.next=null;
+
+//     }
+// }
+// let head=new List1(1);
+// head.next=new List1(2);
+// head.next.next=new List1(3);
+
+// // let head2=reverseList(head);
+// let curr=head;
+
+// while(curr){
+//     console.log(curr.value);
+//     curr=curr.next;
+// }
+// 动态规划
+// function rob(nums){
+//     if(!nums||nums.length===0) return 0;
+//     if(nums.length<3) return Math.max(...nums);
+//     let dp=[];
+//     dp[0]=nums[0];
+//     dp[1]=Math.max(nums[0],nums[1]);
+//     for(let i=2;i<nums.length;i++){
+//         dp[i]=Math.max(dp[i-2]+nums[i],dp[i-1]);
+//     }
+//     return dp[nums.length-1];
+// }
+// let nums=[2,7,9,3,1] ;
+// console.log(rob(nums));
 
 
 
