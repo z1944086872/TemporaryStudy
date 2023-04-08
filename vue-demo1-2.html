@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,body{
+            height: 100%;
+            width: 100%;
+            margin:0;
+            padding:0
+        }
+        .main{
+            width: 100%;
+            height: 100%;
+            
+            
+        }
+        .header{
+            background-color: red;
+            height: 20%;
+        }
+        .aside{
+            background-color: black;
+            float: left;
+            width: 20%;
+            height: 80%;
+        }
+        .content{
+            background-color: green;
+            float: left;
+            height: 80%;
+            width: 80%;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+    <script src="./vue.js"></script>
+    <script>
+        var Vheader={
+            
+            template:`<div class="header">我是头部
+                <button @click="sonChagefonsize">点击</button>
+                
+                </div>`,
+            data(){
+                return {
+                    
+                }
+            },
+            methods:{
+                sonChagefonsize(){
+                    this.$emit('paraChagefonsize');
+                }
+            }
+
+        };
+        var Vaside={
+            
+            template:`<div  class="aside">我是左部</div>`,
+            data(){
+                return {
+                    
+                }
+            }
+
+        };
+        var Vcontent={
+            
+            template:`<div class="content">
+                <ul><li v-for="(value,index) in VList">{{value}}----{{index}}</li></ul>
+                </div>`,
+           
+            props:['VList']
+
+        };
+        Vue.component("Vdiv",{
+            template:`
+            <li>
+                <slot name="two"></slot>
+                <slot name="one"></slot>
+                
+                </li>
+            
+            `
+        })
+
+        new Vue({
+            el:"#app",
+            template:`<div class="main" :style="{fontSize:postfontsize+'em'}">
+                
+                <Vheader @paraChagefonsize="paraChagefonsize"/>
+                <Vaside/>
+                <vcontent :VList="VList"/>
+                <Vdiv>
+                    <h1 slot='two'>2</h1>
+                    <h1 slot='one'>1</h1>
+                    </Vdiv>
+                    <input type="number" name="price" v-model="price"/>
+                    <h3>{{price|myCurrent}}</h3>
+                </div>`,
+            data(){
+                return {
+                    VList:[
+                        {
+                            id:0,name:"test1",price:60
+                        },
+                        {
+                            id:0,name:"test1",price:60
+                        },
+                        {
+                            id:0,name:"test1",price:60
+                        }
+                    ],
+                    postfontsize:1,
+                    price:0,
+                    
+                }
+                
+            },
+            filters:{
+                    myCurrent:function(value){
+                        return '$'+value;
+                    }
+                },
+           
+            methods:{
+                paraChagefonsize(){
+                    this.postfontsize+=.1;
+                }
+
+            },
+            components:{
+                Vheader,
+                Vaside,
+                Vcontent
+
+            }
+        })
+
+    </script>
+</body>
+</html>

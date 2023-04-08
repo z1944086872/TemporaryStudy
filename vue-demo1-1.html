@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Document</title>
+    <style>
+        .op{
+            color: red;
+        }
+        .active{
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="App">
+        
+        <div v-if="test">test</div>
+        <div v-show="isShow">show</div>
+        <div v-html="msg2"></div>
+        <div v-text="fun()"></div>
+        <ul>
+            <li v-for="item in menuList">
+                <h4>id:{{item.id}}</h4>
+                <span>名字:{{item.name}}</span>
+                <span>价格:{{item.price}}</span>
+            </li>
+            <li v-for="(value,key) in object1">
+                
+                
+                <span>{{key}}---{{value}}</span>
+            </li>
+        </ul>
+        <p class="op" v-bind:class="{active:isShow}">绑定属性测试</p>
+        <button v-on:click="isShow=!isShow">点击变色</button>
+        <input type="text" v-model="msg"/>
+        <span>{{msg}}</span>
+
+        <input type="text" v-bind:value="msg3" v-on:input="change"/>
+        <span>{{msg3}}</span>
+        <Vheader></Vheader>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        var Vheader={
+            template:`
+            <div>我是一个组件</div>
+            `,
+            data(){
+                return {
+
+                }
+            },
+        }
+        new Vue({
+            el:'#App',
+            
+            data(){
+                return{
+                    test:false,
+                    isShow:true,
+                    msg2:"<div>123</div>",
+                    msg:"test",
+                    msg3:"",
+                    fun(){
+                        return "123";
+                    },
+                    menuList:[
+                        {id:0,name:"首页",price:60},
+                        {id:1,name:"社区",price:60},
+                        {id:2,name:"好友",price:60},
+                    ],
+                    object1:{
+                        id:0,
+                        name:"test",
+                        price:60
+
+                    }
+
+                }
+            },
+            methods:{
+                change(e){
+                    this.msg3=e.target.value;
+
+                }
+            },
+            components:{
+                Vheader,
+            }
+        })
+    </script>
+    
+</body>
+</html>

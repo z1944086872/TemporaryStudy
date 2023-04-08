@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- {{istrue}}
+        <div v-if="istrue">变色</div>
+
+        <button v-on:click="istrue=!istrue">点击</button>
+        <input v-bind:value="val"></input>
+        {{val}} -->
+        <!-- <div v-for="(ind,it) in test">{{ind}}----{{it}}</div> -->
+    <!-- <input :value='chage' @input="cahge1"></input>
+    {{chage}} -->
+    </div>
+    <script>
+        var VHeader={
+            template:`<div>我是投123</div>`,
+            data(){
+                return{
+
+                }
+            }
+        }
+        new Vue({
+            el:"#app",
+            template:`<div>
+                <VHeader></VHeader>
+                </div>`,
+            data:function(){
+                return {
+                    istrue:false,
+                    val:"hah 2",
+                    chage:"",
+                    test:{
+                        name:"123",
+                        age:12,
+                        price:213
+                    }
+                }
+            },
+            components:{
+                VHeader
+            },
+            methods:{
+                return1(){
+                    return 1;
+                },
+                cahge1(e){
+                    console.log(e.target.value);
+                    this.chage=e.target.value;
+                }
+            }
+        })
+    </script>
+    
+</body>
+</html>

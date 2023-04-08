@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let rules=[
+        {
+            "rule": [
+                "有毛2",
+                "哺乳"
+            ],
+            "res": "哺乳类"
+        },
+        {
+            "rule": [
+                "温度>37",
+                "流鼻涕"
+            ],
+            "res": "感冒"
+        },
+        {
+            "rule": [
+                "温度>37",
+                "流鼻涕",
+                "拉肚子"
+            ],
+            "res": "流感"
+        },
+        {
+            "rule": [
+                "有毛3",
+                "哺乳2"
+            ],
+            "res": "测试3"
+        },
+        {
+            "rule": [
+                "a",
+                "b"
+            ],
+            "res": "c"
+        },
+        {
+            "rule": [
+                "a",
+                "b",
+                "d"
+            ],
+            "res": "e"
+        }
+    ];
+    let facts=['a','b']
+    // //返回包含所有fact的rules
+    // function  list_in_set(facts, rule){
+    //     // console.log("=================")
+    //     // console.log(rule,facts)
+    //     for(let i of facts){
+    //         if (!rule.rule.includes(i)){
+    //             return false;
+    //         }
+                
+
+    //     }
+            
+    //     return true
+    // }
+    // // 传入全部特征和全部方法 返回所有包含特征的rule
+    // function infer(facts,resrules){
+    //     let candidate_resrules=resrules.filter(item=>{
+    //         return list_in_set(facts,item)
+    //     });
+    //     let candidate_res=resrules.map(item=>{return item.res})
+    //     let allfacts=Array.from(new Set([].concat(...resrules.map(item=>{return item.rule}))));
+    //     let unfacts=allfacts.filter(item=>{return !facts.includes(item)});
+    //     return candidate_resrules,candidate_res,unfacts
+    // }
+
+    // console.log(unfacts,res)
+
+    // console.log();
+
+
+
+    // function  list_in_set(rule, fact){
+    //     console.log("=================")
+    //     console.log(rule,fact)
+    //     for(let i of fact){
+    //         if (!rule.includes(i)){
+    //             return false;
+    //         }
+                
+
+    //     }
+            
+    //     return true
+    // }
+    function  list_in_set(rule, fact){
+        console.log("=================")
+        console.log(rule,fact)
+        for(let i of rule){
+            if (!fact.includes(i)){
+                return false;
+            }
+                
+
+        }
+            
+        return true
+    }
+    
+    
+    function resolve(candidate_rule, method=1){
+        console.log(candidate_rule)
+        if(method == 1){
+            return candidate_rule.sort((a,b)=>{return b.length-a.length})[0]}
+        else if(method == 2) {
+            return candidate_rule[0]}
+        else if(method == 3) {
+            return candidate_rule[-1]}
+        else if(method == 4) {
+            return candidate_rule}
+        
+        
+        else{
+            exit(0)}}
+    // 判断是否可以归约
+    function guiyue(rules,facts,visited_rule){
+        let candidate_rule=[];
+            for(let rule  of rules){
+            
+                
+                if(list_in_set(rule.rule, facts) && (!visited_rule.includes(rule) )) {
+                    candidate_rule.push(rule)
+                    visited_rule.push(rule)
+                    console.log("++++++++++++",candidate_rule, visited_rule)
+                    console.log('规约：',rule.rule, rule.res)
+
+                }
+
+            }
+            return candidate_rule
+
+    }
+    function infer(facts,rules){
+        // console.log("----",facts,rules)
+        // for(let a of rules) {console.log("+++++",a.rule);}
+            
+        let candidate_rule = [];
+        let visited_rule = [];
+        let flag = false;
+
+        while (true){
+            candidate_rule=[];
+            candidate_rule=guiyue(rules,facts,visited_rule);5-*/
+            if (candidate_rule.length != 0){
+                result = resolve(candidate_rule)
+                facts.push(result.res)
+                console.log("特征库",facts)
+                flag = true
+                console.log('冲突消解：%s ====> %s\n',result.rule,result.res)
+            }
+            else{break}
+        }
+                
+
+        if (flag){
+            console.log('最终推出 ----> ',facts[facts.length-1])
+            return facts[facts.length-1]}
+
+        else{console.log('无法推出')}
+            
+    }
+    infer(facts,rules);
+
+    // 所有的fact都包含在rule中就返回
+    
+
+    </script>
+</body>
+</html>

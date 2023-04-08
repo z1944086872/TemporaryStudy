@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cur{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <input :value="getCurrnt"/>
+        <ul>
+            <li v-for="(item,index) in musicData" :class="{cur:index==currentIndex}" @click="active1(index)">
+                <span>id：{{item.id}}名字{{item.name}}</span>
+
+            </li>
+        </ul>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        var musicData=[
+            {id:0,name:'测试1',value:"1111"},
+            {id:1,name:'测试2',value:"2222"},
+            {id:2,name:'测试3',value:"3333"},
+
+        ]
+        new Vue({
+            el:"#app",
+            data(){
+                return {
+                    musicData:musicData,
+                    currentIndex:1
+
+                }
+            },
+            computed:{
+                getCurrnt:function(){
+                    return this.musicData[this.currentIndex].name;
+                }
+            },
+            methods:{
+                active1:function(index){
+                    this.currentIndex=index;
+                }
+            }
+        })
+
+    </script>
+    
+</body>
+</html>

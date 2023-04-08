@@ -4,9 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        article{
+            border: solid 1px red;
+            height: 80em;
+            display: flex;
+            align-items: center;
+            
+
+        }
+        article div{
+            border: solid 1px green;
+        }
+    </style>
 </head>
 <body>
+
+    <article>
+        <div>1</div>
+        <div>1</div>
+        <div>3</div>
+    </article>
     <script>
+        // 封装函数 f，使 f 的 this 指向指定的对象
         // function getUrlParam(sUrl, sKey) {
             
         //     let partten=sUrl.split('?')[1].split('#')[0].split('&');
@@ -26,6 +46,81 @@
         // }
         // let sUrl="http://www.nowcoder.com?key=1&key=2&key=3&test=4#hehe"
         // console.log(getUrlParam(sUrl,'abc')) ;
+
+        // function commonParentNode(oNode1, oNode2) {
+        //     let parentoNode1=oNode1;
+        //     let parentoNode2=oNode2;
+            
+        //     while(true){
+        //         if(parentoNode1.contains(oNode2)){
+        //             return parentoNode1;
+        //         };
+        //         if(parentoNode2.contains(oNode1)){
+        //             return parentoNode2;
+        //         };
+        //         parentoNode1=parentoNode1.parentNode;
+        //         parentoNode2=parentoNode2.parentNode;
+
+        //     }
+            
+        // }
+        
+        //  var parent = document.createElement('DIV');
+        //   var a = document.createElement('DIV'); 
+        //   var b = document.createElement('DIV'); 
+        //   parent.appendChild(a); 
+        //   parent.appendChild(b); 
+        //   console.dir(a);
+        //   var c = commonParentNode(a, b); 
+        //   console.log(parent.contains(a)) ; 
+
+//        
+
+//  function Animal(){
+//      this.name="animal";
+//      this.k=function(){
+//          console.log(this.name+"的方法");
+//      }
+//  }
+//  let cat=new Animal();
+//  console.dir(cat);
+// instanceof的实现原理
+// function Parent(){};
+// let child=new Parent();
+// let a={};
+// console.log(child instanceof Parent);
+// console.dir(a);
+// function instance_of(c,p){
+//     p=p.prototype;
+//     while(true){
+//         if(c.__proto__===null) return false;
+//         if(c.__proto__===p){
+//             return true;
+//         }
+//         c=c.__proto__;
+//     }
+
+// }
+// console.log(instance_of(a,Parent));
+
+// 一部async await
+// async function hd(message) {
+//   return new Promise(resolve => {
+//     setTimeout(() => {
+//       resolve(message);
+//     }, 2000);
+//   });
+// }
+// async function run() {
+//   let h1 = await hd("后盾人");
+  
+//   console.log(h1);
+//   console.log("123");
+
+//   let h2 = await hd("houdunren.com");
+//   console.log(h2);
+// }
+// run();
     </script>
 </body>
 </html>

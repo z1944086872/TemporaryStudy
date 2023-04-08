@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .parent{
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            border: solid 1px red;
+        }
+        .parent div{
+            border: solid 1px red;
+            width: 40px;
+            align-items: center;
+        }
+
+    </style>
+    <div class="parent">
+        <div class="child">123</div>
+    </div>
+    <script>
+        // function Parent(){
+        //     this.name="parent";
+            
+        // };
+        // Parent.prototype.sayhi=function(){
+        //     console.log("hi");
+        // };
+        // function Child(){
+
+        // };
+        // Child.prototype=new Parent();
+        // a=new Child();
+        // a.sayhi()
+
+        // function Parent(name){
+        //     this.name=name;
+        //     this.func=function(){
+        //         console.log(this.name)
+        //     }
+            
+        // };
+       
+        // function Child(name){
+        //     Parent.call(this,name)
+
+        // };
+        // Child.prototype=new Parent();
+        // a=new Child("123");
+        // a.func()
+
+        // function Parent(name){
+        //     this.name=name;
+        //     this.func=function(){
+        //         console.log(this.name)
+        //     }
+            
+        // };
+        // Parent.prototype.sayhi=function(){
+        //     console.log("hi");
+        // };
+        // Child.prototype=new Parent();
+       
+        // function Child(name){
+        //     Parent.call(this,name)
+
+        // };
+        // Child.prototype=new Parent();
+        // a=new Child("123");
+        // a.func()
+        // a.sayhi()
+
+        observe_id=0;
+        observed_id=0;
+        class oberserve{
+            constructor(){
+                this.id=observe_id++;
+
+            };
+            update(ob){
+                console.log("观察者"+this.id+"观察到"+ob.id+"的变化")
+            }
+        }
+        class Observed{
+            constructor(){
+                this.id=observed_id++;
+                this.observes=[];
+            };
+            add_observed(obed){
+                this.observes.push(obed);
+            }
+            notify(ob){
+                this.observes.forEach((item)=>{
+                    item.update(ob);
+                })
+
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>

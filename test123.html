@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        /* .box{
+            width: 100px;
+            height: 100px;
+            display:grid;
+            grid-template-columns: repeat(3,33%);
+            grid-template-rows: repeat(3,33%);
+            grid-column-gap: 2px;
+            grid-row-gap: 2px;
+        }
+        .box div{
+            background-color: red;
+        }
+        .parent{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100px;
+            border: solid 1px red;
+        }
+        .child{
+            width: 20px;
+            
+            border: solid 1px red;
+        } */
+        .box{
+            white-space: nowrap; 
+    width: 100%; 
+            
+        }
+        .box li{
+            
+            display: inline-block; 
+            width: 150px;
+            /* overflow-x: auto;float:left; */
+
+        }
+        
+    </style>
+    <ul class="box" id="test" >
+        <li>1</li>
+        <li>1</li>
+        <li>1</li>
+        <li>1</li>
+        <li>1</li>
+        <li>1</li>
+        <li>1</li>
+        <li>1</li>
+        <li>1</li>
+        <li>1</li>
+
+    </ul>
+
+<div style="width: 100px;overflow: visible;">
+    <div style="display: inline-block;white-space: nowrap">
+        <ul style="display: inline-block;">
+            <li>亚洲</li>
+            <li>欧洲</li>
+            <li>北美洲</li>
+        </ul>
+        <ul style="display: inline-block">
+            <li>中国</li>
+            <li>美国</li>
+            <li>印度</li>
+            <li>日本</li>
+        </ul>
+    </div>
+
+
+    <div class="parent"><div class="child">123</div></div>
+    <script>
+        // el=document.querySelector("#test")
+        // console.log(el.offsetWidth)
+        // console.log(typeof "123")
+        // function Parent(){
+        //     this.name="parent";
+            
+
+        // }
+        // Parent.prototype.sayhai=function(){
+        //     console.log("hi");
+        // };
+        // function Child(){}
+        // Child.prototype=new Parent();
+        // a=new Child()
+        // a.sayhai();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            height: 100vh;
+            display: flex;
+            
+            flex-direction: column;
+        }
+        main{
+            background: #eee;
+            flex:1;
+        }
+        footer{
+            background: #f3f3f3;
+            border: solid 1px #aaa;
+            height: 40px;
+            display: flex;
+            
+            justify-content: space-evenly;
+        }
+        footer section{
+            flex:1;
+
+            border-right: solid 1px #aaa;
+            display: flex;
+            flex-direction: column-reverse;
+        }
+        footer section h4{
+            flex:  0 0 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+        footer section a{
+            text-decoration: none;
+            flex:  0 0 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <main>
+主
+    </main>
+    <footer>
+        <section>
+            <h4>教程</h4>
+            <a href="">a</a><a href="">b</a><a href="">c</a>
+        </section>
+        <section>
+            <h4>教程</h4>
+            <a href="">a</a><a href="">b</a><a href="">c</a>
+        </section>
+        <section>
+            <h4>教程</h4>
+            <a href="">a</a><a href="">b</a><a href="">c</a>
+        </section>
+    </footer>
+</body>
+</html>
